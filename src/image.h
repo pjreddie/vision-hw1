@@ -1,6 +1,8 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+// DO NOT CHANGE THIS FILE
+
 typedef struct{
     int w,h,c;
     float *data;
@@ -46,7 +48,7 @@ image make_emboss_filter();
 image make_highpass_filter();
 image make_gaussian_filter(float sigma);
 image make_sharpen_filter(float s);
-image convolve_filter(image im, image filter, int preserve);
+image convolve_image(image im, image filter, int preserve);
 image *sobel_image(image im);
 void feature_normalize(image im);
 void clip_normalize(image im);

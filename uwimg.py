@@ -144,9 +144,9 @@ make_gaussian_filter = lib.make_gaussian_filter
 make_gaussian_filter.argtypes = [c_float]
 make_gaussian_filter.restype = IMAGE
 
-convolve_filter = lib.convolve_filter
-convolve_filter.argtypes = [IMAGE, IMAGE, c_int]
-convolve_filter.restype = IMAGE
+convolve_image = lib.convolve_image
+convolve_image.argtypes = [IMAGE, IMAGE, c_int]
+convolve_image.restype = IMAGE
 
 silly_sobel = lib.silly_sobel
 silly_sobel.argtypes = [IMAGE]

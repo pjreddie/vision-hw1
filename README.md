@@ -145,7 +145,36 @@ We can also make [really trippy images](http://cvcl.mit.edu/hybrid/OlivaTorralb_
 
 Small                     |  Medium | Large
 :-------------------------:|:-------:|:------------------:
-![](figs/marilyn-einstein.png)   | ![](figs/marilyn-einstein-medium.png) | ![](figs/marilyn-einstein-small.png)
+![](figs/marilyn-einstein-small.png)   | ![](figs/marilyn-einstein-medium.png) | ![](figs/marilyn-einstein.png)
+
+If you don't believe my resizing check out `figs/marilyn-einstein.png` and view it from far away and up close. Sorta neat, right?
+
+Your job is to produce a similar image. But instead of famous dead people we'll be using famous fictional people! In particular, we'll be exposing the secret (but totally canon) sub-plot of the Harry Potter franchise that Dumbledore is a time-traveling Ron Weasely. Don't trust me?? The images don't lie! Wake up sheeple!
 
 
+Small                     | Large
+:-------------------------:|:------------------:
+![](figs/ronbledore-small.jpg)   | ![](figs/ronbledore.jpg) 
 
+For this task you'll have to extract the high frequency and low frequency from some images. You already know how to get low frequency, using your gaussian filter. To get high frequency you just subtract the low frequency data from the original image.
+
+Fill in `image add_image(image a, image b)` and `image sub_image(image a, image b)` so we can perform our transformations. They should probably include some checks that the images are the same size and such. Now we should be able to run something like this:
+
+    from uwimg import *
+    im = load_image("data/dog.jpg")
+    f = make_gaussian_filter(2)
+    lfreq = convolve_image(im, f, 1)
+    hfreq = im - lfreq
+    reconstruct = lfreq + hfreq
+    save_image(lfreq, "low-frequency")
+    save_image(hfreq, "high-frequency")
+    save_image(reconstruct, "reconstruct")
+
+
+Low frequency           |  High frequency | Reconstruction
+:-------------------------:|:-------:|:------------------:
+![](figs/low-frequency.png)   | ![](figs/high-frequency.png) | ![](figs/reconstruct.png)
+
+Note, the high-frequency image overflows when we save it to disk? Is this a problem for us? Why or why not?
+
+Use these functions to recreate your own Ronbledore image.

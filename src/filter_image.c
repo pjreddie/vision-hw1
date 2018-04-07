@@ -46,6 +46,18 @@ image make_emboss_filter()
 
 image make_gaussian_filter(float sigma)
 {
+    // TODO
     return make_image(1,1,1);
 }
 
+image add_image(image a, image b)
+{
+    // TODO
+    return make_image(1,1,1);
+}
+
+image sub_image(image a, image b)
+{
+    // TODO
+    return make_image(1,1,1);
+}

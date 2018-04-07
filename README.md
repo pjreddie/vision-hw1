@@ -196,7 +196,7 @@ Gx                 |  Gy
 
 To visualize our sobel operator we'll want another normalization strategy, [feature normalization](https://en.wikipedia.org/wiki/Feature_scaling). This strategy is simple, we just want to scale the image so all values lie between [0-1]. In particular we will be [rescaling](https://en.wikipedia.org/wiki/Feature_scaling#Rescaling) the image by subtracting the minimum from all values and dividing by the range of the data. If the range is zero you should just set the whole image to 0 (don't divide by 0 that's bad).
 
-### 3.3 Calculate gradient magnitude and direction###
+### 3.3 Calculate gradient magnitude and direction ###
 
 Fill in the function `image *sobel_image(image im)`. It should return two images, the gradient magnitude and direction. The strategy can be found [here](https://en.wikipedia.org/wiki/Sobel_operator#Formulation). We can visualize our magnitude using our normalization function:
 
@@ -209,4 +209,15 @@ Fill in the function `image *sobel_image(image im)`. It should return two images
 Which results in:
 
 ![](figs/magnitude.png)
+
+### 3.4 Make a colorized representation ###
+
+Now using your sobel filter try to make a cool, stylized one. Fill in the function `image colorize_sobel(image im)`. I used the magnitude to specify the saturation and value of an image and the angle to specify the hue but you can do whatever you want (as long as it looks cool). I also used some smoothing:
+
+![](figs/lcolorized.png)
+
+
+## 4 Turn it in ##
+
+Turn in your `resize_image.c`, `filter_image.c`, `ronbledore.jpg` and `sobel.jpg` on canvas under Assignment 1.
 

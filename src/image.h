@@ -8,7 +8,6 @@ typedef struct{
     float *data;
 } image;
 
-
 // Basic operations
 float get_pixel(image im, int x, int y, int c);
 void set_pixel(image im, int x, int y, int c, float v);
@@ -24,7 +23,6 @@ image get_channel(image im, int c);
 int same_image(image a, image b);
 image sub_image(image a, image b);
 image add_image(image a, image b);
-
 
 // Loading and saving
 image make_image(int w, int h, int c);
@@ -48,11 +46,10 @@ image make_emboss_filter();
 image make_gaussian_filter(float sigma);
 image make_gx_filter();
 image make_gy_filter();
-image *sobel_image(image im);
 void feature_normalize(image im);
 void threshold_image(image im, float thresh);
-void pow_image(image im, float s);
-void minimum_image(image im, float thresh);
+image *sobel_image(image im);
+image colorize_sobel(image im);
 
 #endif
 

@@ -144,6 +144,10 @@ sobel_image = lib.sobel_image
 sobel_image.argtypes = [IMAGE]
 sobel_image.restype = POINTER(IMAGE)
 
+colorize_sobel = lib.colorize_sobel
+colorize_sobel.argtypes = [IMAGE]
+colorize_sobel.restype = IMAGE
+
 make_gaussian_filter = lib.make_gaussian_filter
 make_gaussian_filter.argtypes = [c_float]
 make_gaussian_filter.restype = IMAGE

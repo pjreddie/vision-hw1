@@ -87,3 +87,9 @@ image *sobel_image(image im)
     // TODO
     return calloc(2, sizeof(image));
 }
+
+image colorize_sobel(image im)
+{
+    // TODO
+    return make_image(1,1,1);
+}

@@ -11,7 +11,7 @@ ALIB=libuwimg.a
 EXEC=uwimg
 OBJDIR=./obj/
 
-CC=gcc-4.9
+CC=gcc
 AR=ar
 ARFLAGS=rcs
 OPTS=-Ofast

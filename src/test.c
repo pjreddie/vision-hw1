@@ -15,7 +15,6 @@ int same_image(image a, image b){
     int i;
     if(a.w != b.w || a.h != b.h || a.c != b.c) return 0;
     for(i = 0; i < a.w*a.h*a.c; ++i){
-//if(!within_eps(a.data[i], b.data[i])) printf("%d %f %f\n", i, a.data[i], b.data[i]);
         if(!within_eps(a.data[i], b.data[i])) return 0;
     }
     return 1;

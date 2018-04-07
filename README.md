@@ -109,7 +109,7 @@ Resize                     |  Blur and Resize
 
 ### 2.2 Make some more filters and try them out! ###
 
-Fill in the functions `image make_highpass_filter()`, `image make_sharpen_filter()`, and `image make_emboss_filter()` to return the example kernels we covered in class. Try them out on some images! After you have, answer Question 2.2 in the source file (put your answer just right there)
+Fill in the functions `image make_highpass_filter()`, `image make_sharpen_filter()`, and `image make_emboss_filter()` to return the example kernels we covered in class. Try them out on some images! After you have, answer Question 2.2.1 and 2.2.2 in the source file (put your answer just right there)
 
 Highpass                   |  Sharpen                  | Emboss
 :-------------------------:|:-------------------------:|:--------------------|
@@ -177,4 +177,29 @@ Low frequency           |  High frequency | Reconstruction
 
 Note, the high-frequency image overflows when we save it to disk? Is this a problem for us? Why or why not?
 
-Use these functions to recreate your own Ronbledore image.
+Use these functions to recreate your own Ronbledore image. You will need to tune your standard deviations for the gaussians you use and will probably need different each image to get it to look good.
+
+## 3 Sobel filters ##
+
+The [Sobel filter](https://www.researchgate.net/publication/239398674_An_Isotropic_3x3_Image_Gradient_Operator) is cool because we can estimate the gradients and direction of those gradients in an image. They should be straightforward now that you all are such pros at image filtering.
+
+### 3.1 Make the filters ###
+
+First implement the functions to make our sobel filters. They are for estimating the gradient in the x and y direction:
+
+Gx                 |  Gy 
+:-----------------:|:------------------:
+![](figs/gx.png)   |  ![](figs/gy.png)
+
+
+### 3.2 One more normalization... ###
+
+To visualize our sobel operator we'll want another normalization strategy, [feature normalization](https://en.wikipedia.org/wiki/Feature_scaling). This strategy is simple, we just want to scale the image so all values like between [0-1]. In particular we will be [rescaling](https://en.wikipedia.org/wiki/Feature_scaling#Rescaling) the image by subtracting the minimum from all values and dividing by the range of the data. If the range is zero you should just set the whole image to 0 (don't divide by 0 that's bad).
+
+### 3.3 Calculate gradient magnitude and direction###
+
+Fill in the function `image *sobel_image(image im)`. It should return two images, the gradient magnitude and direction. The strategy can be found [here](https://en.wikipedia.org/wiki/Sobel_operator#Formulation). We can visualize our magnitude using our normalization function:
+
+
+
+

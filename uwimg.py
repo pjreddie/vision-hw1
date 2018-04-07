@@ -132,13 +132,17 @@ make_highpass_filter = lib.make_highpass_filter
 make_highpass_filter.argtypes = []
 make_highpass_filter.restype = IMAGE
 
-sobel_y_filter = lib.sobel_y_filter
-sobel_y_filter.argtypes = []
-sobel_y_filter.restype = IMAGE
+make_gy_filter = lib.make_gy_filter
+make_gy_filter.argtypes = []
+make_gy_filter.restype = IMAGE
 
-sobel_x_filter = lib.sobel_x_filter
-sobel_x_filter.argtypes = []
-sobel_x_filter.restype = IMAGE
+make_gx_filter = lib.make_gx_filter
+make_gx_filter.argtypes = []
+make_gx_filter.restype = IMAGE
+
+sobel_image = lib.sobel_image
+sobel_image.argtypes = [IMAGE]
+sobel_image.restype = POINTER(IMAGE)
 
 make_gaussian_filter = lib.make_gaussian_filter
 make_gaussian_filter.argtypes = [c_float]
@@ -148,9 +152,6 @@ convolve_image = lib.convolve_image
 convolve_image.argtypes = [IMAGE, IMAGE, c_int]
 convolve_image.restype = IMAGE
 
-silly_sobel = lib.silly_sobel
-silly_sobel.argtypes = [IMAGE]
-silly_sobel.restype = IMAGE
 
 if __name__ == "__main__":
     im = load_image("data/dog.jpg")

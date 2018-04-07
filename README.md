@@ -135,7 +135,7 @@ Now you should be able to try out your new blurring function! It should have muc
 
 ![blurred dog](figs/dog-gauss2.png)
 
-## 3 Hybrid images ##
+## 3. Hybrid images ##
 
 Gaussian filters are cool because they are a true low-pass filter for the image. This means when we run them on an image we only get the low-frequency changes in an image like color. Conversely, we can subtract this low-frequency information from the original image to get the high frequency information!
 
@@ -179,11 +179,11 @@ Note, the high-frequency image overflows when we save it to disk? Is this a prob
 
 Use these functions to recreate your own Ronbledore image. You will need to tune your standard deviations for the gaussians you use and will probably need different each image to get it to look good.
 
-## 3 Sobel filters ##
+## 4. Sobel filters ##
 
 The [Sobel filter](https://www.researchgate.net/publication/239398674_An_Isotropic_3x3_Image_Gradient_Operator) is cool because we can estimate the gradients and direction of those gradients in an image. They should be straightforward now that you all are such pros at image filtering.
 
-### 3.1 Make the filters ###
+### 4.1 Make the filters ###
 
 First implement the functions to make our sobel filters. They are for estimating the gradient in the x and y direction:
 
@@ -192,32 +192,33 @@ Gx                 |  Gy
 ![](figs/gx.png)   |  ![](figs/gy.png)
 
 
-### 3.2 One more normalization... ###
+### 4.2 One more normalization... ###
 
 To visualize our sobel operator we'll want another normalization strategy, [feature normalization](https://en.wikipedia.org/wiki/Feature_scaling). This strategy is simple, we just want to scale the image so all values lie between [0-1]. In particular we will be [rescaling](https://en.wikipedia.org/wiki/Feature_scaling#Rescaling) the image by subtracting the minimum from all values and dividing by the range of the data. If the range is zero you should just set the whole image to 0 (don't divide by 0 that's bad).
 
-### 3.3 Calculate gradient magnitude and direction ###
+### 4.3 Calculate gradient magnitude and direction ###
 
 Fill in the function `image *sobel_image(image im)`. It should return two images, the gradient magnitude and direction. The strategy can be found [here](https://en.wikipedia.org/wiki/Sobel_operator#Formulation). We can visualize our magnitude using our normalization function:
 
+    from uwimg import *
     im = load_image("data/dog.jpg")
     res = sobel_image(im)
     mag = res[0]
     feature_normalize(mag)
-    save_png(mag, "figs/magnitude")
+    save_image(mag, "magnitude")
 
 Which results in:
 
 ![](figs/magnitude.png)
 
-### 3.4 Make a colorized representation ###
+### 4.4 Make a colorized representation ###
 
 Now using your sobel filter try to make a cool, stylized one. Fill in the function `image colorize_sobel(image im)`. I used the magnitude to specify the saturation and value of an image and the angle to specify the hue but you can do whatever you want (as long as it looks cool). I also used some smoothing:
 
 ![](figs/lcolorized.png)
 
 
-## 4 Turn it in ##
+## 5. Turn it in ##
 
 Turn in your `resize_image.c`, `filter_image.c`, `ronbledore.jpg` and `sobel.jpg` on canvas under Assignment 1.
 

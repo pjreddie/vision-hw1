@@ -40,19 +40,13 @@ float bilinear_interpolate(image im, float x, float y, int c);
 image bilinear_resize(image im, int w, int h);
 
 // Filtering
-image sobel_y_filter();
-image sobel_x_filter();
-image silly_sobel(image im);
-image make_box_filter(int w);
-image make_emboss_filter();
-image make_highpass_filter();
-image make_gaussian_filter(float sigma);
-image make_sharpen_filter(float s);
 image convolve_image(image im, image filter, int preserve);
-image *sobel_image(image im);
+image make_box_filter(int w);
+image make_highpass_filter();
+image make_sharpen_filter();
+image make_emboss_filter();
+image make_gaussian_filter(float sigma);
 void feature_normalize(image im);
-void clip_normalize(image im);
-void z_normalize(image im);
 void threshold_image(image im, float thresh);
 void pow_image(image im, float s);
 void minimum_image(image im, float thresh);

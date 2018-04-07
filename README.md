@@ -74,7 +74,7 @@ Now it's time to fill in `image convolve_image(image im, image filter, int prese
 
 Also, `filter` better have either the same number of channels as `im` or have 1 channel. I check this with an `assert`.
 
-We are calling this a convolution but you don't need to rotate the filter or anything. Just apply it to the image as we discussed in class:
+We are calling this a convolution but you don't need to flip the filter or anything (we're actually doing a cross-correlation). Just apply it to the image as we discussed in class:
 
 ![covolution](figs/convolution.png)
 
@@ -103,8 +103,17 @@ Now we can use this to perform our thumbnail operation:
 
 Look at how much better our new resized thumbnail is!
 
-Resize             |  Blur and Resize
+Resize                     |  Blur and Resize
 :-------------------------:|:-------------------------:
-![](figs/dog7th-nn.png)  |  ![](figs/dogthumb.png)
+![](figs/dog7th-nn.png)    | ![](figs/dogthumb.png)
 
+### 2.2 Make some more filters and try them out! ###
+
+Fill in the functions `image make_highpass_filter()`, `image make_sharpen_filter()`, and `image make_emboss_filter()` to return the example kernels we covered in class. Try them out on some images! After you have, answer Question 2.2 in the source file (put your answer just right there)
+
+Highpass                   |  Sharpen                  | Emboss
+:-------------------------:|:-------------------------:|:--------------------|
+![](figs/highpass.png)     | ![](figs/sharpen.png)     | ![](figs/emboss.png)
+
+### 2.3 Implement a Gaussian kernel ###
 

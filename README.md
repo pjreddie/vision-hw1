@@ -208,5 +208,5 @@ Fill in the function `image *sobel_image(image im)`. It should return two images
 
 Which results in:
 
-![](figs/magnitude)
+![](figs/magnitude.png)
 

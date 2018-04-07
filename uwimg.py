@@ -47,10 +47,6 @@ rgb_to_grayscale = lib.rgb_to_grayscale
 rgb_to_grayscale.argtypes = [IMAGE]
 rgb_to_grayscale.restype = IMAGE
 
-grayscale_to_rgb = lib.grayscale_to_rgb
-grayscale_to_rgb.argtypes = [IMAGE, c_float, c_float, c_float]
-grayscale_to_rgb.restype = IMAGE
-
 copy_image = lib.copy_image
 copy_image.argtypes = [IMAGE]
 copy_image.restype = IMAGE
@@ -74,10 +70,6 @@ hsv_to_rgb.restype = None
 shift_image = lib.shift_image
 shift_image.argtypes = [IMAGE, c_int, c_float]
 shift_image.restype = None
-
-scale_image = lib.scale_image
-scale_image.argtypes = [IMAGE, c_int, c_float]
-scale_image.restype = None
 
 load_image_lib = lib.load_image
 load_image_lib.argtypes = [c_char_p]

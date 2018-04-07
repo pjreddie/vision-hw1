@@ -29,7 +29,7 @@ image make_highpass_filter()
     return make_image(1,1,1);
 }
 
-image make_sharpen_filter(float s)
+image make_sharpen_filter()
 {
     // TODO
     return make_image(1,1,1);

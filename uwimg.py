@@ -117,7 +117,7 @@ bilinear_resize.argtypes = [IMAGE, c_int, c_int]
 bilinear_resize.restype = IMAGE
 
 make_sharpen_filter = lib.make_sharpen_filter
-make_sharpen_filter.argtypes = [c_float]
+make_sharpen_filter.argtypes = []
 make_sharpen_filter.restype = IMAGE
 
 make_box_filter = lib.make_box_filter

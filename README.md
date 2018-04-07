@@ -117,3 +117,35 @@ Highpass                   |  Sharpen                  | Emboss
 
 ### 2.3 Implement a Gaussian kernel ###
 
+Implement `image make_gaussian_filter(float sigma)` which will take a standard deviation value and return a filter that smooths using a gaussian with that sigma. How big should the filter be, you ask? 99% of the probability mass for a gaussian is within +/- 3 standard deviations so make the kernel be 6 times the size of sigma. But also we want an odd number, so make it be the next highest odd integer from 6x sigma.
+
+We need to fill in our kernel with some values. Use the probability density function for a 2d gaussian:
+
+![2d gaussian](figs/2dgauss.png)
+
+Technically this isn't perfect, what we would really want to do is integrate over the area covered by each cell in the filter. But that's much more complicated and this is a decent estimate. Remember though, this is a blurring filter so we want all the weights to sum to 1. If only we had a function for that....
+
+Now you should be able to try out your new blurring function! It should have much less noise than the box filter:
+
+    from uwimg import *
+    im = load_image("data/dog.jpg")
+    f = make_gaussian_filter(2)
+    blur = convolve_image(im, f, 1)
+    save_image(blur, "dog-gauss2")
+
+![blurred dog](figs/dog-gauss2.png)
+
+## 3 Hybrid images ##
+
+Gaussian filters are cool because they are a true low-pass filter for the image. This means when we run them on an image we only get the low-frequency changes in an image like color. Conversely, we can subtract this low-frequency information from the original image to get the high frequency information!
+
+Using this frequency separation we can do some pretty neat stuff. For example, check out [this tutorial on retouching skin](https://petapixel.com/2015/07/08/primer-using-frequency-separation-in-photoshop-for-skin-retouching/) in Photoshop (but only if you want to).
+
+We can also make [really trippy images](http://cvcl.mit.edu/hybrid/OlivaTorralb_Hybrid_Siggraph06.pdf) that look different depending on if you are close or far away from them. That's what we'll be doing. They are hybrid images that take low frequency information from one image and high frequency info from another. Here's a picture of.... what exactly?
+
+Small                     |  Medium | Large
+:-------------------------:|:-------:|:------------------:
+![](figs/marilyn-einstein.png)   | ![](figs/marilyn-einstein-medium.png) | ![](figs/marilyn-einstein-small.png)
+
+
+

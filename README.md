@@ -200,11 +200,12 @@ To visualize our sobel operator we'll want another normalization strategy, [feat
 
 Fill in the function `image *sobel_image(image im)`. It should return two images, the gradient magnitude and direction. The strategy can be found [here](https://en.wikipedia.org/wiki/Sobel_operator#Formulation). We can visualize our magnitude using our normalization function:
 
+    from uwimg import *
     im = load_image("data/dog.jpg")
     res = sobel_image(im)
     mag = res[0]
     feature_normalize(mag)
-    save_png(mag, "figs/magnitude")
+    save_image(mag, "magnitude")
 
 Which results in:
 

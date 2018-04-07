@@ -10,8 +10,7 @@ float nn_interpolate(image im, float x, float y, int c)
 image nn_resize(image im, int w, int h)
 {
     // TODO Fill in (also fix that first line)
-    image r = make_image(1,1,1);   
-    return r;
+    return make_image(1,1,1);
 }
 
 float bilinear_interpolate(image im, float x, float y, int c)
@@ -23,5 +22,6 @@ float bilinear_interpolate(image im, float x, float y, int c)
 image bilinear_resize(image im, int w, int h)
 {
     // TODO
+    return make_image(1,1,1);
 }
 

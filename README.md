@@ -177,7 +177,7 @@ Low frequency           |  High frequency | Reconstruction
 
 Note, the high-frequency image overflows when we save it to disk? Is this a problem for us? Why or why not?
 
-Use these functions to recreate your own Ronbledore image. You will need to tune your standard deviations for the gaussians you use and will probably need different each image to get it to look good.
+Use these functions to recreate your own Ronbledore image. You will need to tune your standard deviations for the gaussians you use. You will probably need different values for each image to get it to look good.
 
 ## 4. Sobel filters ##
 

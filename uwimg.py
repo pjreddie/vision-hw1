@@ -96,10 +96,6 @@ same_image = lib.same_image
 same_image.argtypes = [IMAGE, IMAGE]
 same_image.restype = c_int
 
-get_channel = lib.get_channel
-get_channel.argtypes = [IMAGE, c_int]
-get_channel.restype = IMAGE
-
 nn_resize = lib.nn_resize
 nn_resize.argtypes = [IMAGE, c_int, c_int]
 nn_resize.restype = IMAGE

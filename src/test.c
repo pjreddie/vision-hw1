@@ -104,6 +104,11 @@ void test_nn_resize()
     image resized = nn_resize(im, im.w*4, im.h*4);
     image gt = load_image("figs/dog4x-nn-for-test.png");
     TEST(same_image(resized, gt));
+
+    image im2 = load_image("data/dog.jpg");
+    image resized2 = nn_resize(im, 713, 467);
+    image gt2 = load_image("figs/dog-resize_nn.png");
+    TEST(same_image(resized2, gt2));
 }
 
 void test_bl_resize()
@@ -112,7 +117,11 @@ void test_bl_resize()
     image resized = bilinear_resize(im, im.w*4, im.h*4);
     image gt = load_image("figs/dog4x-bl.png");
     TEST(same_image(resized, gt));
-    
+
+    image im2 = load_image("data/dog.jpg");
+    image resized2 = bilinear_resize(im, 713, 467);
+    image gt2 = load_image("figs/dog-resize_bil.png");
+    TEST(same_image(resized2, gt2));
 }
 
 void test_multiple_resize()

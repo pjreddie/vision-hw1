@@ -183,6 +183,10 @@ void test_convolution(){
 void test_gaussian_filter(){
     image f = make_gaussian_filter(7);
 
+    for(int i = 0; i < f.w * f.h * f.c; i++){
+        f.data[i] *= 100;
+    }
+
     image gt = load_image("figs/gaussian_filter_7.png");
     TEST(same_image(f, gt));    
 }
@@ -240,7 +244,6 @@ void test_sobel(){
 
     TEST(same_image(gt_mag, mag));
     TEST(same_image(gt_theta, theta));
-
 }
 
 

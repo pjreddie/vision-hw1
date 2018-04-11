@@ -107,7 +107,7 @@ void test_nn_resize()
 
     image im2 = load_image("data/dog.jpg");
     image resized2 = nn_resize(im2, 713, 467);
-    image gt2 = load_image("figs/dog-resize_nn.png");
+    image gt2 = load_image("figs/dog-resize-nn.png");
     TEST(same_image(resized2, gt2));
 }
 
@@ -120,7 +120,7 @@ void test_bl_resize()
 
     image im2 = load_image("data/dog.jpg");
     image resized2 = bilinear_resize(im2, 713, 467);
-    image gt2 = load_image("figs/dog-resize_bil.png");
+    image gt2 = load_image("figs/dog-resize-bil.png");
     TEST(same_image(resized2, gt2));
 }
 

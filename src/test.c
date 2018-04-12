@@ -1,5 +1,6 @@
 #include <math.h>
 #include <string.h>
+#include <assert.h>
 #include "image.h"
 #include "test.h"
 #include "args.h"
@@ -241,6 +242,17 @@ void test_sobel(){
 
     image gt_mag = load_image("figs/magnitude.png");
     image gt_theta = load_image("figs/theta.png");
+    int i;
+    for(i = 0; i < gt_mag.w*gt_mag.h; ++i){
+        if(within_eps(gt_mag.data[i], 0)){
+            gt_theta.data[i] = 0;
+            theta.data[i] = 0;
+        }
+        if(within_eps(gt_theta.data[i], 0) || within_eps(gt_theta.data[i], 1)){
+            gt_theta.data[i] = 0;
+            theta.data[i] = 0;
+        }
+    }
 
     TEST(same_image(gt_mag, mag));
     TEST(same_image(gt_theta, theta));

@@ -1,6 +1,6 @@
 OPENCV=0
 OPENMP=0
-DEBUG=0
+DEBUG=1
 
 OBJ=load_image.o process_image.o args.o filter_image.o resize_image.o test.o
 EXOBJ=main.o
@@ -17,7 +17,7 @@ ARFLAGS=rcs
 OPTS=-Ofast
 LDFLAGS= -lm -pthread 
 COMMON= -Iinclude/ -Isrc/ 
-CFLAGS=-Wall -Wno-unknown-pragmas -Wfatal-errors -fPIC -flto
+CFLAGS=-Wall -Wno-unknown-pragmas -Wfatal-errors -fPIC
 
 ifeq ($(OPENMP), 1) 
 CFLAGS+= -fopenmp
@@ -26,6 +26,8 @@ endif
 ifeq ($(DEBUG), 1) 
 OPTS=-O0 -g
 COMMON= -Iinclude/ -Isrc/ 
+else
+CFLAGS+= -flto
 endif
 
 CFLAGS+=$(OPTS)

@@ -1,6 +1,6 @@
 OPENCV=0
 OPENMP=0
-DEBUG=1
+DEBUG=0
 
 OBJ=load_image.o process_image.o args.o filter_image.o resize_image.o test.o
 EXOBJ=main.o
